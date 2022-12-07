@@ -1,0 +1,54 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+
+<a asp-area="" asp-controller="Home" asp-action="Index">
+    <img class="logoCSPharma mb-5" src="~/resources/logo.png" />
+</a>
+
+<div class="row">
+        <form class="col-lg-6 offset-lg-3 " id="account" method="post">
+        <h2 class="row justify-content-center mb-3" style="color: #5dc1b9 ">Acceso</h2>
+            <div class="row justify-content-center">
+
+            <div class="mb-3 row justify-content-center">
+                <label asp-for="Input.Email" class="col-sm-2 col-form-label input-Login">E-mail:</label>
+                    <div class="col-sm-5">
+                    <input class="input-Login" asp-for="Input.Email" autocomplete="username" aria-required="true" />
+                    <br/>
+                     <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+            <div class="mb-3 row justify-content-center">
+                <label asp-for="Input.Password" class="col-sm-2 col-form-label input-Login">Password:</label>
+                    <div class="col-sm-5">
+                    <input class="input-Login" asp-for="Input.Password" autocomplete="current-password" aria-required="true" />
+                     <br />
+                     <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn-cspharma">Iniciar sesión</button>
+                    <p>
+                    <a class="row justify-content-center text-black" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">¿Nuevo usuario? Regístrate aquí</a>
+                    </p>
+                </div>
+      
+            </div>
+        </form>
+            
+       
+    
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
